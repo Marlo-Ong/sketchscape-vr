@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c7922cfeb28b0c24794fc0f00bf98b65
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 185710
+  packageName: GetItemEffect
+  packageVersion: 1.0.0
+  assetPath: Assets/GetItemEffect/Model/Modle/Idle.anim
+  uploadId: 407996

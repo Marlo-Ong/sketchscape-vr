@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 425174152b45e714bb84674000553408
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 185710
+  packageName: GetItemEffect
+  packageVersion: 1.0.0
+  assetPath: Assets/GetItemEffect/Prefabs/ExamplePanel.prefab
+  uploadId: 407996

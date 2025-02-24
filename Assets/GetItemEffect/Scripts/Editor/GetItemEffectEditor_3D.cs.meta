@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3d51c19251840f5419c5cdd66a766e8e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 185710
+  packageName: GetItemEffect
+  packageVersion: 1.0.0
+  assetPath: Assets/GetItemEffect/Scripts/Editor/GetItemEffectEditor_3D.cs
+  uploadId: 407996

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3196cdcc5b1a70343bc5b9c8ac5800fe
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 185710
+  packageName: GetItemEffect
+  packageVersion: 1.0.0
+  assetPath: Assets/GetItemEffect/Model/Modle/lambert3.mat
+  uploadId: 407996

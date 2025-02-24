@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cffdbcb4386e65641af1577472586e98
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 185710
+  packageName: GetItemEffect
+  packageVersion: 1.0.0
+  assetPath: Assets/GetItemEffect/Model/Prefabs/coin.prefab
+  uploadId: 407996

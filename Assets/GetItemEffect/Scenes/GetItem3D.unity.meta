@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 20dd7acf9f7e4a24ca0c25bb80d3ee65
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 185710
+  packageName: GetItemEffect
+  packageVersion: 1.0.0
+  assetPath: Assets/GetItemEffect/Scenes/GetItem3D.unity
+  uploadId: 407996

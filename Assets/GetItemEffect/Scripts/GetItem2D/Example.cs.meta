@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5953fb6343189c144bf1c858e3601874
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 185710
+  packageName: GetItemEffect
+  packageVersion: 1.0.0
+  assetPath: Assets/GetItemEffect/Scripts/GetItem2D/Example.cs
+  uploadId: 407996

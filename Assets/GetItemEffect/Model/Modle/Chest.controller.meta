@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fd307692315bb5346b6eedd5b116acd4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 185710
+  packageName: GetItemEffect
+  packageVersion: 1.0.0
+  assetPath: Assets/GetItemEffect/Model/Modle/Chest.controller
+  uploadId: 407996

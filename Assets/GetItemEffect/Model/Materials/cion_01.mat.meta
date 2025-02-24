@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dd7a5960791d06c4cabbfe3ab7c9a5b9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 185710
+  packageName: GetItemEffect
+  packageVersion: 1.0.0
+  assetPath: Assets/GetItemEffect/Model/Materials/cion_01.mat
+  uploadId: 407996

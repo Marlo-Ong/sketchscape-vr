@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7af8e01a68ecf044cabc032e6cb271eb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 185710
+  packageName: GetItemEffect
+  packageVersion: 1.0.0
+  assetPath: Assets/GetItemEffect/Scripts/GetItem3D/ChestItem.cs
+  uploadId: 407996
