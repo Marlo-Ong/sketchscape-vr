@@ -4,16 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class UIMenuController : MonoBehaviour
 {
-  public GameObject menuPanel;
-  public GameObject changeEnvironmentPanel;
-  public GameObject viewOptionsPanel;
+  [SerializeField] private GameObject menuPanel;
+  [SerializeField] private GameObject changeEnvironmentPanel;
+  [SerializeField] private GameObject viewOptionsPanel;
 
-  public Button startButton;
-  public Button changeButton;
-  public Button exitButton;
-  public Button closeButton;
-  public Button viewOptionsButton;
-  public Button returnButton;
+  [SerializeField] private Button startButton;
+  [SerializeField] private Button changeButton;
+  [SerializeField] private Button exitButton;
+  [SerializeField] private Button closeButton;
+  [SerializeField] private Button viewOptionsButton;
+  [SerializeField] private Button returnButton;
 
   void Start()
   {

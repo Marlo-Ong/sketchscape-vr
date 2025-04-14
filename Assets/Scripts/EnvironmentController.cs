@@ -1,54 +1,61 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+using TMPro;
 using System.Collections.Generic;
 
 public class EnvironmentController : MonoBehaviour
 {
-    [Serializable] public class ButtonEnvironmentPair
-    {
-        public Button button;
-        public GameObject environment;
-    }
-    
-    [SerializeField] public List<ButtonEnvironmentPair> environmentPairs = new List<ButtonEnvironmentPair>();
-    public GameObject currentEnvironment;
-    
+    [SerializeField] private Button nextButton;
+    [SerializeField] private Button previousButton;
+    [SerializeField] private Button applyButton;
+    [SerializeField] private TextMeshProUGUI environmentNameText;
+
+    [SerializeField] private List<GameObject> environments = new List<GameObject>();
+
+    private int currentIndex;
+    private GameObject currentEnvironment;
+
     void Start()
     {
-        currentEnvironment = environmentPairs[0].environment;
+        nextButton.onClick.AddListener(NextEnvironment);
+        previousButton.onClick.AddListener(PreviousEnvironment);
+        applyButton.onClick.AddListener(ApplySelectedEnvironment);
+
+        foreach(GameObject environment in environments)
+        {
+            environment.SetActive(false);
+        }
+        
+        //initialize first environment
+        currentIndex = 0;
+        currentEnvironment = environments[0];
         currentEnvironment.SetActive(true);
 
-        foreach (var pair in environmentPairs)
-        {
-            pair.button.onClick.AddListener(() => SwitchEnvironment(pair.environment));
-        }
-    
-        UpdateButtons();
+        UpdateUI();
     }
-    
-    private void SwitchEnvironment(GameObject newEnvironment)
+
+    public void NextEnvironment()
+    {
+        currentIndex = (currentIndex + 1) % environments.Count;
+        UpdateUI();
+    }
+
+    public void PreviousEnvironment()
+    {
+        currentIndex = (currentIndex - 1 + environments.Count) % environments.Count;
+        UpdateUI();
+    }
+
+    public void ApplySelectedEnvironment()
     {
         currentEnvironment.SetActive(false);
-        newEnvironment.SetActive(true);
-        currentEnvironment = newEnvironment;
-        
-        UpdateButtons();
+        environments[currentIndex].SetActive(true);
+        currentEnvironment = environments[currentIndex];
     }
-    
-    private void UpdateButtons()
+
+    private void UpdateUI()
     {
-        foreach (var pair in environmentPairs)
-        {
-            if (pair.environment == currentEnvironment)
-            {
-                pair.button.interactable = false;
-            } 
-            else 
-            {
-                pair.button.interactable = true;
-            }
-        }
-    
+        environmentNameText.text = environments[currentIndex].name;
+        applyButton.interactable = environments[currentIndex] != currentEnvironment;
     }
 }
