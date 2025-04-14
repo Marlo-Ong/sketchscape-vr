@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UIMenuManager : MonoBehaviour
+public class UIMenuController : MonoBehaviour
 {
   public GameObject menuPanel;
   public GameObject changeEnvironmentPanel;
@@ -17,15 +17,15 @@ public class UIMenuManager : MonoBehaviour
 
   void Start()
   {
-    DisableUIMenu();
-
-    viewOptionsButton.onClick.AddListener(EnableUIMenu);
-    changeButton.onClick.AddListener(EnableChangeEnvironmentPanel);
+    OpenPanel(viewOptionsPanel);
+    
+    viewOptionsButton.onClick.AddListener(() => OpenPanel(menuPanel));
+    changeButton.onClick.AddListener(() => OpenPanel(changeEnvironmentPanel));
+    closeButton.onClick.AddListener(() => OpenPanel(viewOptionsPanel));
+    returnButton.onClick.AddListener(() => OpenPanel(menuPanel));
+    
     startButton.onClick.AddListener(StartGame);
     exitButton.onClick.AddListener(ExitGame);
-    closeButton.onClick.AddListener(DisableUIMenu);
-    startButton.onClick.AddListener(StartGame);
-    returnButton.onClick.AddListener(EnableUIMenu);
   }
 
   public void StartGame()
@@ -41,23 +41,12 @@ public class UIMenuManager : MonoBehaviour
     Application.Quit();
   }
 
-  public void EnableChangeEnvironmentPanel()
+  public void OpenPanel(GameObject panelToOpen)
   {
     menuPanel.SetActive(false);
-    changeEnvironmentPanel.SetActive(true);
-  }
-
-  public void EnableUIMenu()
-  {
     changeEnvironmentPanel.SetActive(false);
     viewOptionsPanel.SetActive(false);
-    menuPanel.SetActive(true);
-  }
-
-  public void DisableUIMenu()
-  {
-    changeEnvironmentPanel.SetActive(false);
-    menuPanel.SetActive(false);
-    viewOptionsPanel.SetActive(true);
+    
+    panelToOpen.SetActive(true);
   }
 }
