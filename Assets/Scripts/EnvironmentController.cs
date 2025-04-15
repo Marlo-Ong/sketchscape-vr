@@ -49,6 +49,7 @@ public class EnvironmentController : MonoBehaviour
     public void ApplySelectedEnvironment()
     {
         currentEnvironment.SetActive(false);
+        applyButton.interactable = false;
         environments[currentIndex].SetActive(true);
         currentEnvironment = environments[currentIndex];
     }
