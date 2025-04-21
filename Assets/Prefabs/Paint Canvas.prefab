@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3157272133161756013}
   - component: {fileID: 5854023253169568807}
   - component: {fileID: 3198238199782623134}
-  - component: {fileID: 2411690398435423983}
+  - component: {fileID: 4119696041122387844}
   m_Layer: 0
   m_Name: Paint Canvas
   m_TagString: Untagged
@@ -110,7 +110,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2411690398435423983
+--- !u!114 &4119696041122387844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,4 +125,17 @@ MonoBehaviour:
   cam: {fileID: 0}
   brushColor: {r: 1, g: 0, b: 0, a: 1}
   canvasBaseColor: {r: 1, g: 1, b: 1, a: 1}
-  brushSize: 4
+  brushSize: 10
+  drawAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Draw
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 64eddeab-a9aa-4e8b-8861-1ed958e55183
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  brushTransform: {fileID: 0}
