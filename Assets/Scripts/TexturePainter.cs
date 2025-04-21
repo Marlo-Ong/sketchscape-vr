@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -42,21 +43,78 @@ public class TexturePainter : MonoBehaviour
     public Camera cam;
 
     [Header("Brush Settings")]
-    public Color brushColor = Color.red;
-    public Color canvasBaseColor = Color.white;
-    public int brushSize = 10;
+    [SerializeField] private Color brushColor = Color.red;
+    [SerializeField] private Color canvasBaseColor = Color.white;
+    [SerializeField] private int brushSize = 10;
+    [SerializeField] private int brushSizeIncrement = 1;
+    [SerializeField] private int brushSizeMin = 1;
+    [SerializeField] private int brushSizeMax = 20;
+    [SerializeField] private InputActionProperty drawAction;
+    [SerializeField] private Transform brushTransform;
 
     private Texture2D runtimeTexture;
+
+
+    void OnEnable()
+    {
+        drawAction.action.Enable();
+    }
+
+    void OnDisable()
+    {
+        drawAction.action.Disable();
+    }
 
     void Start()
     {
         var renderer = GetComponent<Renderer>();
 
-        // Create a coy2 of the texture.
+        // Create a copy of the texture.
         runtimeTexture = new Texture2D(256, 256, TextureFormat.RGBA32, false);
         renderer.material.mainTexture = runtimeTexture;
 
-        // Draw each pixel of the texture.
+        ClearCanvas();
+    }
+
+    void Update()
+    {
+        float input = drawAction.action.ReadValue<float>();
+        if (Mathf.Approximately(input, 0.0f))
+            return;
+
+        Ray ray = new(brushTransform.position, brushTransform.forward);
+        if (!Physics.Raycast(ray, out RaycastHit hit))
+            return;
+
+        // Calculate the scaled texel coordinate.
+        Vector2 texel = hit.textureCoord;
+        int x = (int)(texel.x * runtimeTexture.width);
+        int y = (int)(texel.y * runtimeTexture.height);
+
+        // Draw the texel.
+        runtimeTexture.DrawTexel(x, y, this.brushSize, this.brushColor);
+
+    }
+
+    #region Public Methods
+
+    public void SetBrushSize(int size)
+    {
+        this.brushSize = math.clamp(size, this.brushSizeMin, this.brushSizeMax);
+    }
+
+    public void IncrementBrushSize()
+    {
+        this.SetBrushSize(this.brushSize + this.brushSizeIncrement);
+    }
+
+    public void DecrementBrushSize()
+    {
+        this.SetBrushSize(this.brushSize - this.brushSizeIncrement);
+    }
+
+    public void ClearCanvas()
+    {
         for (int x = 0; x < runtimeTexture.height; x++)
         {
             for (int y = 0; y < runtimeTexture.width; y++)
@@ -64,24 +122,7 @@ public class TexturePainter : MonoBehaviour
                 runtimeTexture.SetPixel(x, y, canvasBaseColor);
             }
         }
-        runtimeTexture.Apply();
     }
 
-    void Update()
-    {
-        if (Mouse.current.leftButton.isPressed)
-        {
-            Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                // Calculate the scaled texel coordinate.
-                Vector2 texel = hit.textureCoord;
-                int x = (int)(texel.x * runtimeTexture.width);
-                int y = (int)(texel.y * runtimeTexture.height);
-
-                // Draw the texel.
-                runtimeTexture.DrawTexel(x, y, this.brushSize, this.brushColor);
-            }
-        }
-    }
+    #endregion
 }
