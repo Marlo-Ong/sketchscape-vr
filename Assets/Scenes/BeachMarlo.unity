@@ -13138,7 +13138,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1231695498}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -16746,7 +16746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1625625954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16781,6 +16781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paintMenuPanel: {fileID: 1706974750}
+  openPaintMenuAction: {fileID: 8381733120163765857, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &1638947405
 GameObject:
   m_ObjectHideFlags: 0
@@ -17846,7 +17847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1706974751
 RectTransform:
   m_ObjectHideFlags: 0

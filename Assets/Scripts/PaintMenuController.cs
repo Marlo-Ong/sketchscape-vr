@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PaintMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject paintMenuPanel;
-    private InputActionReference openPaintMenuAction;
+    [SerializeField] private InputActionReference openPaintMenuAction;
 
   void Awake()
   {
