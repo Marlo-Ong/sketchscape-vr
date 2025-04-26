@@ -16121,7 +16121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeColorPanel: {fileID: 1706974750}
   changeBrushPanel: {fileID: 774001308}
-  buttonsRef: {fileID: 1779701845}
+  buttonsPanel: {fileID: 1779701845}
   POVReference: {fileID: 1208425539}
   openPaintMenuAction: {fileID: 8381733120163765857, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   colorButton: {fileID: 866372881}
@@ -17564,7 +17564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1779701846}
   m_Layer: 5
-  m_Name: Buttons
+  m_Name: ButtonsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
