@@ -15,50 +15,7 @@ public class PaintMenuController : MonoBehaviour
     
     private bool isMenuOpen = false;
 
-  void Start()
-  {
-    openPaintMenuAction.action.Enable();
-    openPaintMenuAction.action.performed += TogglePaintMenu;
-    InputSystem.onDeviceChange += OnDeviceChange;
-
-    changeBrushPanel.SetActive(false);
-    changeColorPanel.SetActive(false);
-    buttonsRef.SetActive(false);
-
-    currentPanel = changeColorPanel;
-
-    colorButton.onClick.AddListener(() => OpenPanel(changeColorPanel));
-    brushButton.onClick.AddListener(() => OpenPanel(changeBrushPanel));
-  }
-
-  private void OnDestroy()
-  {
-    openPaintMenuAction.action.Disable();
-    openPaintMenuAction.action.performed -= TogglePaintMenu;
-    InputSystem.onDeviceChange -= OnDeviceChange;
-  }
-
-  private void TogglePaintMenu(InputAction.CallbackContext context)
-  {
-    changeColorPanel.transform.position = POVReference.transform.position;
-    changeColorPanel.transform.rotation = POVReference.transform.rotation;
-    changeBrushPanel.transform.position = POVReference.transform.position;
-    changeBrushPanel.transform.rotation = POVReference.transform.rotation;
-    buttonsRef.transform.position = POVReference.transform.position;
-    buttonsRef.transform.rotation = POVReference.transform.rotation;
-
-    changeBrushPanel.SetActive(false);
-    changeColorPanel.SetActive(false);
-    buttonsRef.SetActive(!buttonsRef.activeSelf);
-    currentPanel.SetActive(buttonsRef.activeSelf);
-
-    if(currentPanel == changeColorPanel) colorButton.interactable = false;
-    else brushButton.interactable = false;
-  }
-
-  private void OnDeviceChange(InputDevice device, InputDeviceChange change)
-  {
-    switch(change)
+    void Start()
     {
         openPaintMenuAction.action.Enable();
         openPaintMenuAction.action.performed += TogglePaintMenu;
