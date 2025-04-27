@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -160,6 +161,15 @@ public class TexturePainter : MonoBehaviour
                 runtimeTexture.SetPixel(x, y, canvasBaseColor);
             }
         }
+    }
+
+    public void SaveCanvasToFile()
+    {
+        string fileName = "texture" + System.DateTime.Now.ToString("HH-mm-ss") + ".png";
+        string filePath = Application.persistentDataPath + fileName;
+        var textureBytes = this.runtimeTexture.EncodeToPNG();
+        File.WriteAllBytes(filePath, textureBytes);
+        Debug.Log($"Canvas successfully written to {filePath}");
     }
 
     #endregion
