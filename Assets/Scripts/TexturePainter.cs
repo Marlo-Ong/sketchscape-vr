@@ -16,8 +16,12 @@ public class TexturePainter : MonoBehaviour
     [SerializeField] private int brushSizeIncrement = 1;
     [SerializeField] private int brushSizeMin = 1;
     [SerializeField] private int brushSizeMax = 20;
-    [SerializeField] private InputActionProperty drawAction;
-    [SerializeField] private Transform brushTransform;
+
+    [Header("Controller References")]
+    [SerializeField] private Transform leftControllerTransform;
+    [SerializeField] private InputActionProperty leftControllerDrawAction;
+    [SerializeField] private Transform rightControllerTransform;
+    [SerializeField] private InputActionProperty rightControllerDrawAction;
 
     private Texture2D runtimeTexture;
     private Vector2Int? previousTexel;
@@ -26,14 +30,16 @@ public class TexturePainter : MonoBehaviour
 
     void OnEnable()
     {
-        drawAction.action.Enable();
+        leftControllerDrawAction.action.Enable();
+        rightControllerDrawAction.action.Enable();
         ColorManager.OnColorChanged += this.SetBrushColor;
         BrushManager.OnSizeChanged += this.SetBrushSize;
     }
 
     void OnDisable()
     {
-        drawAction.action.Disable();
+        leftControllerDrawAction.action.Disable();
+        rightControllerDrawAction.action.Disable();
         ColorManager.OnColorChanged -= this.SetBrushColor;
         BrushManager.OnSizeChanged -= this.SetBrushSize;
     }
@@ -52,21 +58,63 @@ public class TexturePainter : MonoBehaviour
 
     void Update()
     {
-        // Check if user started drawing.
-        float input = drawAction.action.ReadValue<float>();
-        if (Mathf.Approximately(input, 0.0f))
-            return;
+        // Check if user started drawing with either left or right controllers.
+        float leftInput = leftControllerDrawAction.action.ReadValue<float>();
+        float rightInput = rightControllerDrawAction.action.ReadValue<float>();
 
-        // Check if brush is pointed at canvas.
-        Ray ray = new(brushTransform.position, brushTransform.forward);
-        if (!Physics.Raycast(ray, out RaycastHit hit))
+        bool leftClicked = !Mathf.Approximately(leftInput, 0.0f);
+        bool rightClicked = !Mathf.Approximately(rightInput, 0.0f);
+        bool leftHit = false, rightHit = false;
+
+        if (leftClicked)
         {
-            this.previousTexel = null;
-            return;
+            // Check if brush is pointed at canvas.
+            Ray ray = new(leftControllerTransform.position, leftControllerTransform.forward);
+            leftHit = Physics.Raycast(ray, out RaycastHit hit);
+
+            if (leftHit)
+            {
+                Vector2 texel = hit.textureCoord;
+                this.PaintAt(texel);
+            }
+        }
+        if (rightClicked)
+        {
+            // Check if brush is pointed at canvas.
+            Ray ray = new(rightControllerTransform.position, rightControllerTransform.forward);
+            rightHit = Physics.Raycast(ray, out RaycastHit hit);
+
+            if (rightHit)
+            {
+                Vector2 texel = hit.textureCoord;
+                this.PaintAt(texel);
+            }
         }
 
+        // Update previous texel if did not draw this frame.
+        if (!leftHit && !rightHit)
+            previousTexel = null;
+    }
+
+    void LateUpdate()
+    {
+        if (this.texelsToDraw == null || this.texelsToDraw.Count == 0)
+            return;
+
+        // Draw all enqueued pixels.
+        foreach ((var texel, var color) in this.texelsToDraw)
+            this.runtimeTexture.SetPixel(texel.x, texel.y, color);
+
+        this.runtimeTexture.Apply();
+        this.texelsToDraw.Clear();
+    }
+
+    #region Private Methods
+
+    private void PaintAt(Vector2 texel)
+    {
         // Calculate the scaled texel coordinate.
-        Vector2 texel = hit.textureCoord;
+
         int x = (int)(texel.x * runtimeTexture.width);
         int y = (int)(texel.y * runtimeTexture.height);
         Vector2Int currentTexel = new(x, y);
@@ -94,21 +142,6 @@ public class TexturePainter : MonoBehaviour
 
         previousTexel = currentTexel;
     }
-
-    void LateUpdate()
-    {
-        if (this.texelsToDraw == null || this.texelsToDraw.Count == 0)
-            return;
-
-        // Draw all enqueued pixels.
-        foreach ((var texel, var color) in this.texelsToDraw)
-            this.runtimeTexture.SetPixel(texel.x, texel.y, color);
-
-        this.runtimeTexture.Apply();
-        this.texelsToDraw.Clear();
-    }
-
-    #region Private Methods
 
     private void EnqueueTexel(int x, int y, int radius, Color color)
     {

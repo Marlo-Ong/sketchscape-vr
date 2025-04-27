@@ -126,16 +126,32 @@ MonoBehaviour:
   brushColor: {r: 1, g: 0, b: 0, a: 1}
   canvasBaseColor: {r: 1, g: 1, b: 1, a: 1}
   brushSize: 10
-  drawAction:
+  brushSizeIncrement: 1
+  brushSizeMin: 1
+  brushSizeMax: 20
+  leftControllerTransform: {fileID: 0}
+  leftControllerDrawAction:
     m_UseReference: 0
     m_Action:
-      m_Name: Draw
+      m_Name: Left Controller Draw
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 64eddeab-a9aa-4e8b-8861-1ed958e55183
+      m_Id: 7d59cab2-1c35-4d49-b7a9-030bc1f8c253
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  brushTransform: {fileID: 0}
+  rightControllerTransform: {fileID: 0}
+  rightControllerDrawAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Right Controller Draw
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 81d78bb9-7508-41c7-b979-faafae8892e7
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
