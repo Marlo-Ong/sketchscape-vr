@@ -2888,6 +2888,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199741484}
   m_CullTransparentMesh: 1
+--- !u!4 &211790711 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7277802326798953675, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+  m_PrefabInstance: {fileID: 2779669268269126897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &225502095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10479,7 +10484,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 180515322}
     - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: leftControllerTransform
+      value: 
+      objectReference: {fileID: 211790711}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: rightControllerTransform
+      value: 
+      objectReference: {fileID: 180515322}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: saveCanvasAction.m_Action.m_Name
+      value: Save Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
       propertyPath: drawAction.m_Action.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: saveCanvasAction.m_Action.m_SingletonActionBindings.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
@@ -10493,6 +10514,50 @@ PrefabInstance:
     - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
       propertyPath: drawAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
       value: Draw
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: leftControllerDrawAction.m_Action.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: saveCanvasAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
+      value: b62243ef-8b07-4672-a77a-840b957581f7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: rightControllerDrawAction.m_Action.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: saveCanvasAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XRController>{RightHand}/primaryTouched
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: saveCanvasAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Save Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: leftControllerDrawAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
+      value: d96229f9-fa3a-4092-b5fb-ffbbc8b3c1bc
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: rightControllerDrawAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 610b1387-46d0-44cd-8178-2722a9c5c345
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: leftControllerDrawAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XRController>{LeftHand}/triggerPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: rightControllerDrawAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XRController>{RightHand}/triggerPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: leftControllerDrawAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Left Controller Draw
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119696041122387844, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: rightControllerDrawAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Right Controller Draw
       objectReference: {fileID: 0}
     - target: {fileID: 6146759991534368068, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
       propertyPath: m_Name
