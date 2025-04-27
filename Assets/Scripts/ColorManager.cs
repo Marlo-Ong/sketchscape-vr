@@ -9,8 +9,8 @@ public class ColorManager : MonoBehaviour
     private Color currentColor;
     
     public delegate void ColorChangedEvent(Color newColor);
-    public event ColorChangedEvent OnColorChanged;
-    
+    public static event ColorChangedEvent OnColorChanged;
+
     private void Start()
     {
         foreach (Toggle toggle in colorToggles)

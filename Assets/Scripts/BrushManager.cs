@@ -15,8 +15,8 @@ public class BrushManager : MonoBehaviour
     private int currentSize = 5;
     
     public delegate void SizeChangedEvent(int newSize);
-    public event SizeChangedEvent OnSizeChanged;
-    
+    public static event SizeChangedEvent OnSizeChanged;
+
     private void Start()
     {
         UpdateSizeDisplay();

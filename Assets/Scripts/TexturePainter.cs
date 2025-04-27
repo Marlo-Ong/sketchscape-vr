@@ -27,11 +27,15 @@ public class TexturePainter : MonoBehaviour
     void OnEnable()
     {
         drawAction.action.Enable();
+        ColorManager.OnColorChanged += this.SetBrushColor;
+        BrushManager.OnSizeChanged += this.SetBrushSize;
     }
 
     void OnDisable()
     {
         drawAction.action.Disable();
+        ColorManager.OnColorChanged -= this.SetBrushColor;
+        BrushManager.OnSizeChanged -= this.SetBrushSize;
     }
 
     void Start()
@@ -136,6 +140,11 @@ public class TexturePainter : MonoBehaviour
     #endregion
 
     #region Public Methods
+
+    public void SetBrushColor(Color newColor)
+    {
+        this.brushColor = newColor;
+    }
 
     public void SetBrushSize(int size)
     {
