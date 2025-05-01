@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Unity.Mathematics;
@@ -26,6 +27,10 @@ public class TexturePainter : MonoBehaviour
     private Texture2D runtimeTexture;
     private Vector2Int? previousTexel;
     private Dictionary<Vector2Int, Color> texelsToDraw;
+    private bool isPainting = false;
+
+    public static event Action<Transform> OnStartPainting;
+    public static event Action OnStopPainting;
 
 
     void OnEnable()
@@ -76,6 +81,12 @@ public class TexturePainter : MonoBehaviour
             {
                 Vector2 texel = hit.textureCoord;
                 this.PaintAt(texel);
+
+                if (!this.isPainting)
+                {
+                    OnStartPainting?.Invoke(leftControllerTransform);
+                    this.isPainting = true;
+                }
             }
         }
         if (rightClicked)
@@ -88,12 +99,27 @@ public class TexturePainter : MonoBehaviour
             {
                 Vector2 texel = hit.textureCoord;
                 this.PaintAt(texel);
+
+                if (!this.isPainting)
+                {
+                    OnStartPainting?.Invoke(rightControllerTransform);
+                    this.isPainting = true;
+                }
             }
         }
 
         // Update previous texel if did not draw this frame.
         if (!leftHit && !rightHit)
+        {
             previousTexel = null;
+
+            // Broadcast stoped painting message.
+            if (this.isPainting)
+            {
+                OnStopPainting?.Invoke();
+                this.isPainting = false;
+            }
+        }
     }
 
     void LateUpdate()
