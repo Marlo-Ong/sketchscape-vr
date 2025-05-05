@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.XR;
 
 [RequireComponent(typeof(AudioSource))]
 public class DrawAudio : MonoBehaviour
@@ -13,7 +11,7 @@ public class DrawAudio : MonoBehaviour
     private void Start()
     {
         this.source = GetComponent<AudioSource>();
-        this.source.Play(0);
+        this.source.Play();
         this.source.Pause();
     }
 
