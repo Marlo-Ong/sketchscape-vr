@@ -17,6 +17,7 @@ public class TexturePainter : MonoBehaviour
     [SerializeField] private int brushSizeIncrement = 1;
     [SerializeField] private int brushSizeMin = 1;
     [SerializeField] private int brushSizeMax = 20;
+    [SerializeField] private int canvasResolution = 1080;
 
     [Header("Controller References")]
     [SerializeField] private Transform leftControllerTransform;
@@ -55,7 +56,7 @@ public class TexturePainter : MonoBehaviour
         this.texelsToDraw = new();
 
         // Create a copy of the texture.
-        runtimeTexture = new Texture2D(256, 256, TextureFormat.RGBA32, false);
+        runtimeTexture = new Texture2D(this.canvasResolution, this.canvasResolution, TextureFormat.RGBA32, false);
         renderer.material.mainTexture = runtimeTexture;
 
         ClearCanvas();
@@ -64,11 +65,9 @@ public class TexturePainter : MonoBehaviour
     void Update()
     {
         // Check if user started drawing with either left or right controllers.
-        float leftInput = leftControllerDrawAction.action.ReadValue<float>();
-        float rightInput = rightControllerDrawAction.action.ReadValue<float>();
+        bool leftClicked = leftControllerDrawAction.action.IsPressed();
+        bool rightClicked = rightControllerDrawAction.action.IsPressed();
 
-        bool leftClicked = !Mathf.Approximately(leftInput, 0.0f);
-        bool rightClicked = !Mathf.Approximately(rightInput, 0.0f);
         bool leftHit = false, rightHit = false;
 
         if (leftClicked)
