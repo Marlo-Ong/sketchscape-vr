@@ -110,7 +110,11 @@ public class GameManager : MonoBehaviour
         while (timeRemaining > 0)
         {
             if (this.timerText != null)
-                this.timerText.text = $"{(timeRemaining / 60):D2}:{(timeRemaining % 60):D2}";
+            {
+                int mins = (int)(timeRemaining / 60);
+                int secs = (int)(timeRemaining % 60);
+                this.timerText.text = $"{mins:D2}:{secs:D2}";
+            }
 
             timeRemaining -= Time.deltaTime;
             yield return null;
