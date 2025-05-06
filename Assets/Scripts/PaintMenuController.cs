@@ -6,13 +6,13 @@ public class PaintMenuController : MonoBehaviour
 {
     [SerializeField] private GameObject changeColorPanel;
     [SerializeField] private GameObject changeBrushPanel;
-    [SerializeField] private GameObject buttonsPanel; 
+    [SerializeField] private GameObject buttonsPanel;
     [SerializeField] private GameObject POVReference;
     [SerializeField] private InputActionReference openPaintMenuAction;
-    
+
     [SerializeField] private Button colorButton;
     [SerializeField] private Button brushButton;
-    
+
     private bool isMenuOpen = false;
 
     void Start()
@@ -20,11 +20,11 @@ public class PaintMenuController : MonoBehaviour
         openPaintMenuAction.action.Enable();
         openPaintMenuAction.action.performed += TogglePaintMenu;
         InputSystem.onDeviceChange += OnDeviceChange;
-        
+
         changeBrushPanel.SetActive(false);
         changeColorPanel.SetActive(false);
         buttonsPanel.SetActive(false);
-        
+
         colorButton.onClick.AddListener(() => OpenPanel(changeColorPanel));
         brushButton.onClick.AddListener(() => OpenPanel(changeBrushPanel));
     }
@@ -39,15 +39,16 @@ public class PaintMenuController : MonoBehaviour
     private void TogglePaintMenu(InputAction.CallbackContext context)
     {
         isMenuOpen = !isMenuOpen;
-        
+        Debug.Log(isMenuOpen);
+
         if (isMenuOpen)
         {
             UpdateUIPosition();
-            
+
             buttonsPanel.SetActive(true);
             changeColorPanel.SetActive(true);
             changeBrushPanel.SetActive(false);
-            
+
             colorButton.interactable = false;
             brushButton.interactable = true;
         }
@@ -58,7 +59,7 @@ public class PaintMenuController : MonoBehaviour
             changeBrushPanel.SetActive(false);
         }
     }
-    
+
     private void UpdateUIPosition()
     {
         buttonsPanel.transform.position = POVReference.transform.position;
@@ -71,8 +72,10 @@ public class PaintMenuController : MonoBehaviour
 
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
     {
-        switch(change)
+        switch (change)
         {
+            case InputDeviceChange.Disabled:
+            case InputDeviceChange.Removed:
             case InputDeviceChange.Disconnected:
                 openPaintMenuAction.action.Disable();
                 openPaintMenuAction.action.performed -= TogglePaintMenu;
@@ -88,9 +91,9 @@ public class PaintMenuController : MonoBehaviour
     {
         changeColorPanel.SetActive(false);
         changeBrushPanel.SetActive(false);
-        
+
         panelToOpen.SetActive(true);
-        
+
         colorButton.interactable = panelToOpen != changeColorPanel;
         brushButton.interactable = panelToOpen != changeBrushPanel;
     }
