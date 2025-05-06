@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         this.unusedPrompts = new();
+        this.promptPanel.SetActive(false);
     }
 
 

@@ -32,14 +32,7 @@ public class UIMenuController : MonoBehaviour
       button.onClick.AddListener(() => OpenPanel(menuPanel));
     }
     
-    startButton.onClick.AddListener(StartGame);
     exitButton.onClick.AddListener(ExitGame);
-  }
-
-  public void StartGame()
-  {
-    //do stuff
-    // SceneManager.LoadScene(1);
   }
 
   public void ExitGame()
