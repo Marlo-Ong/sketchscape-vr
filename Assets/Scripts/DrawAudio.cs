@@ -30,8 +30,12 @@ public class DrawAudio : MonoBehaviour
         TexturePainter.OnStopPainting -= this.StopPaintAudio;
     }
 
-    private void StopPaintAudio()
+    private void StopPaintAudio(TexturePainter.Brush brushFlags)
     {
+        // Only stop audio if no brushes are currently painting.
+        if (brushFlags != 0)
+            return;
+
         this.source.Pause();
         if (this.paintAudioLoop != null)
         {
@@ -40,14 +44,16 @@ public class DrawAudio : MonoBehaviour
         }
     }
 
-    private void StartPaintAudio(TexturePainter.Brush brush)
+    private void StartPaintAudio(TexturePainter.Brush brushFlags)
     {
         this.source.UnPause();
 
+        // Track the velocity of the left brush if
+        // it's painting, else track the right brush.
         Transform tr = null;
-        if (brush == TexturePainter.Brush.Left)
+        if (brushFlags.HasFlag(TexturePainter.Brush.Left))
             tr = leftBrushTransform;
-        if (brush == TexturePainter.Brush.Right)
+        else if (brushFlags.HasFlag(TexturePainter.Brush.Right))
             tr = rightBrushTransform;
 
         if (tr != null)

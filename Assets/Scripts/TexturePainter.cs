@@ -8,13 +8,13 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Renderer))]
 public class TexturePainter : MonoBehaviour
 {
+    [Flags]
     public enum Brush
     {
-        Left,
-        Right
+        None = 0,
+        Left = 1 << 0,
+        Right = 1 << 1,
     }
-
-    public Camera cam;
 
     [Header("Brush Settings")]
     [SerializeField] private Color brushColor = Color.red;
@@ -35,9 +35,10 @@ public class TexturePainter : MonoBehaviour
     private Vector2Int? previousTexel;
     private Dictionary<Vector2Int, Color> texelsToDraw;
     private bool isPainting = false;
+    private Brush inputState = Brush.None;
 
     public static event Action<Brush> OnStartPainting;
-    public static event Action OnStopPainting;
+    public static event Action<Brush> OnStopPainting;
 
 
     void OnEnable()
@@ -70,60 +71,44 @@ public class TexturePainter : MonoBehaviour
 
     void Update()
     {
-        // Check if user started drawing with either left or right controllers.
-        bool leftClicked = leftControllerDrawAction.action.IsPressed();
-        bool rightClicked = rightControllerDrawAction.action.IsPressed();
+        // Check input
+        bool leftPressed = leftControllerDrawAction.action.IsPressed();
+        bool rightPressed = rightControllerDrawAction.action.IsPressed();
 
-        bool leftHit = false, rightHit = false;
+        ProcessBrush(Brush.Left, leftPressed, leftControllerTransform);
+        ProcessBrush(Brush.Right, rightPressed, rightControllerTransform);
 
-        if (leftClicked)
-        {
-            // Check if brush is pointed at canvas.
-            Ray ray = new(leftControllerTransform.position, leftControllerTransform.forward);
-            leftHit = Physics.Raycast(ray, out RaycastHit hit);
-
-            if (leftHit)
-            {
-                Vector2 texel = hit.textureCoord;
-                this.PaintAt(texel);
-
-                if (!this.isPainting)
-                {
-                    OnStartPainting?.Invoke(Brush.Left);
-                    this.isPainting = true;
-                }
-            }
-        }
-        if (rightClicked)
-        {
-            // Check if brush is pointed at canvas.
-            Ray ray = new(rightControllerTransform.position, rightControllerTransform.forward);
-            rightHit = Physics.Raycast(ray, out RaycastHit hit);
-
-            if (rightHit)
-            {
-                Vector2 texel = hit.textureCoord;
-                this.PaintAt(texel);
-
-                if (!this.isPainting)
-                {
-                    OnStartPainting?.Invoke(Brush.Right);
-                    this.isPainting = true;
-                }
-            }
-        }
-
-        // Update previous texel if did not draw this frame.
-        if (!leftHit && !rightHit)
-        {
+        // Reset previous texel when no brush is drawing
+        if (inputState == 0)
             previousTexel = null;
+    }
 
-            // Broadcast stoped painting message.
-            if (this.isPainting)
+    private void ProcessBrush(Brush brushFlag, bool isPressed, Transform controllerTransform)
+    {
+        bool wasDrawing = this.inputState.HasFlag(brushFlag);
+
+        if (isPressed)
+        {
+            Ray ray = new Ray(controllerTransform.position, controllerTransform.forward);
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                OnStopPainting?.Invoke();
-                this.isPainting = false;
+                Vector2 texelUV = hit.textureCoord;
+                PaintAt(texelUV);
+
+                if (!wasDrawing)
+                {
+                    this.inputState |= brushFlag;
+                    OnStartPainting?.Invoke(inputState);
+                }
+                return;
             }
+        }
+
+        // If here, brush not drawing this frame
+        if (wasDrawing)
+        {
+            this.inputState &= ~brushFlag;
+            OnStopPainting?.Invoke(inputState);
         }
     }
 
