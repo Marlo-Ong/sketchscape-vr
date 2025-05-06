@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class DrawAudio : MonoBehaviour
 {
+    [SerializeField] private Transform leftBrushTransform;
+    [SerializeField] private Transform rightBrushTransform;
+
     private AudioSource source;
     private Vector3 previousPosition;
     private Coroutine paintAudioLoop;
@@ -37,10 +40,18 @@ public class DrawAudio : MonoBehaviour
         }
     }
 
-    private void StartPaintAudio(Transform tr)
+    private void StartPaintAudio(TexturePainter.Brush brush)
     {
         this.source.UnPause();
-        this.paintAudioLoop = StartCoroutine(ContinuePaintAudio(tr));
+
+        Transform tr = null;
+        if (brush == TexturePainter.Brush.Left)
+            tr = leftBrushTransform;
+        if (brush == TexturePainter.Brush.Right)
+            tr = rightBrushTransform;
+
+        if (tr != null)
+            this.paintAudioLoop = StartCoroutine(ContinuePaintAudio(tr));
     }
 
     private IEnumerator ContinuePaintAudio(Transform tr)

@@ -8,6 +8,12 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Renderer))]
 public class TexturePainter : MonoBehaviour
 {
+    public enum Brush
+    {
+        Left,
+        Right
+    }
+
     public Camera cam;
 
     [Header("Brush Settings")]
@@ -30,7 +36,7 @@ public class TexturePainter : MonoBehaviour
     private Dictionary<Vector2Int, Color> texelsToDraw;
     private bool isPainting = false;
 
-    public static event Action<Transform> OnStartPainting;
+    public static event Action<Brush> OnStartPainting;
     public static event Action OnStopPainting;
 
 
@@ -83,7 +89,7 @@ public class TexturePainter : MonoBehaviour
 
                 if (!this.isPainting)
                 {
-                    OnStartPainting?.Invoke(leftControllerTransform);
+                    OnStartPainting?.Invoke(Brush.Left);
                     this.isPainting = true;
                 }
             }
@@ -101,7 +107,7 @@ public class TexturePainter : MonoBehaviour
 
                 if (!this.isPainting)
                 {
-                    OnStartPainting?.Invoke(rightControllerTransform);
+                    OnStartPainting?.Invoke(Brush.Right);
                     this.isPainting = true;
                 }
             }
