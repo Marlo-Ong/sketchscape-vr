@@ -49,7 +49,8 @@ public class DrawAudio : MonoBehaviour
         {
             var pos = tr.position;
             var velocity = (pos - previousPosition) / Time.deltaTime;
-            this.source.pitch = 1 + velocity.sqrMagnitude;
+            float newPitch = Mathf.Clamp(1 + velocity.sqrMagnitude, 1, 3);
+            this.source.pitch = newPitch;
             previousPosition = pos;
             yield return null;
         }
