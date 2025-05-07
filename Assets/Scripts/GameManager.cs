@@ -66,15 +66,20 @@ public class GameManager : MonoBehaviour
 
     public void StartRound()
     {
-        Debug.Assert(this.roundEndTimer == null);
-
         this.SetPromptRandom();
         this.promptPanel.SetActive(true);
+
+        if (this.roundEndTimer != null)
+        {
+            StopCoroutine(this.roundEndTimer);
+            this.roundEndTimer = null;
+        }
         this.roundEndTimer = StartCoroutine(this.WaitForCallback(this.timeLimit, this.EndRound));
     }
 
     public void EndRound()
     {
+        this.roundEndTimer = null;
         this.roundEndTimer = null;
         this.promptPanel.SetActive(false);
     }
