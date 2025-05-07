@@ -5,7 +5,7 @@ public class LineVisualColorChanger : MonoBehaviour
 {
     private LineRenderer line;
 
-    void Start()
+    void Awake()
     {
         this.line = GetComponent<LineRenderer>();
     }
@@ -13,11 +13,18 @@ public class LineVisualColorChanger : MonoBehaviour
     void OnEnable()
     {
         ColorManager.OnColorChanged += this.ChangeColor;
+        BrushManager.OnSizeChanged += this.ChangeSize;
     }
 
     void OnDisable()
     {
         ColorManager.OnColorChanged -= this.ChangeColor;
+        BrushManager.OnSizeChanged -= this.ChangeSize;
+    }
+
+    private void ChangeSize(int newSize)
+    {
+        this.line.widthMultiplier = newSize * .1f;
     }
 
     private void ChangeColor(Color newColor)
