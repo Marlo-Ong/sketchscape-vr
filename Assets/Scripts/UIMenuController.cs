@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class UIMenuController : MonoBehaviour
 {
@@ -16,30 +16,33 @@ public class UIMenuController : MonoBehaviour
   [SerializeField] private Button closeButton;
   [SerializeField] private Button viewOptionsButton;
   [SerializeField] private Button viewControlsButton;
-  [SerializeField] private  List<Button> returnButtons;
+  [SerializeField] private List<Button> returnButtons;
+  [SerializeField] private InputActionReference openMenuShortcut;
 
   void Start()
   {
     OpenPanel(viewOptionsPanel);
-    
+
+    openMenuShortcut.action.performed += (ctx) => OpenPanel(menuPanel);
     viewOptionsButton.onClick.AddListener(() => OpenPanel(menuPanel));
     changeButton.onClick.AddListener(() => OpenPanel(changeEnvironmentPanel));
     closeButton.onClick.AddListener(() => OpenPanel(viewOptionsPanel));
     viewControlsButton.onClick.AddListener(() => OpenPanel(viewControlsPanel));
 
-    foreach(Button button in returnButtons)
+    foreach (Button button in returnButtons)
     {
       button.onClick.AddListener(() => OpenPanel(menuPanel));
     }
-    
+
     exitButton.onClick.AddListener(ExitGame);
   }
 
   public void ExitGame()
   {
     // works in build, not in unity editor play test
-    Debug.Log("Exit only works in build.");
+#if !UNITY_EDITOR
     Application.Quit();
+#endif
   }
 
   public void OpenPanel(GameObject panelToOpen)
@@ -48,7 +51,7 @@ public class UIMenuController : MonoBehaviour
     changeEnvironmentPanel.SetActive(false);
     viewOptionsPanel.SetActive(false);
     viewControlsPanel.SetActive(false);
-    
+
     panelToOpen.SetActive(true);
   }
 }

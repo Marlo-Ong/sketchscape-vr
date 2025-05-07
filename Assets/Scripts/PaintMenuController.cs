@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class PaintMenuController : MonoBehaviour
 {
+    [SerializeField] private GameObject gameMenu;
     [SerializeField] private GameObject changeColorPanel;
     [SerializeField] private GameObject changeBrushPanel;
     [SerializeField] private GameObject buttonsPanel;
@@ -21,10 +22,6 @@ public class PaintMenuController : MonoBehaviour
         openPaintMenuAction.action.performed += TogglePaintMenu;
         InputSystem.onDeviceChange += OnDeviceChange;
 
-        changeBrushPanel.SetActive(false);
-        changeColorPanel.SetActive(false);
-        buttonsPanel.SetActive(false);
-
         colorButton.onClick.AddListener(() => OpenPanel(changeColorPanel));
         brushButton.onClick.AddListener(() => OpenPanel(changeBrushPanel));
     }
@@ -39,25 +36,7 @@ public class PaintMenuController : MonoBehaviour
     private void TogglePaintMenu(InputAction.CallbackContext context)
     {
         isMenuOpen = !isMenuOpen;
-        Debug.Log(isMenuOpen);
-
-        if (isMenuOpen)
-        {
-            UpdateUIPosition();
-
-            buttonsPanel.SetActive(true);
-            changeColorPanel.SetActive(true);
-            changeBrushPanel.SetActive(false);
-
-            colorButton.interactable = false;
-            brushButton.interactable = true;
-        }
-        else
-        {
-            buttonsPanel.SetActive(false);
-            changeColorPanel.SetActive(false);
-            changeBrushPanel.SetActive(false);
-        }
+        gameMenu.SetActive(isMenuOpen);
     }
 
     private void UpdateUIPosition()
