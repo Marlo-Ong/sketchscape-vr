@@ -23,6 +23,7 @@ public class UIMenuController : MonoBehaviour
   {
     OpenPanel(viewOptionsPanel);
 
+    openMenuShortcut.action.Enable();
     openMenuShortcut.action.performed += (ctx) => OpenPanel(menuPanel);
     viewOptionsButton.onClick.AddListener(() => OpenPanel(menuPanel));
     changeButton.onClick.AddListener(() => OpenPanel(changeEnvironmentPanel));

@@ -8499,6 +8499,11 @@ MonoBehaviour:
   sizeText: {fileID: 1644744809}
   increaseButton: {fileID: 1368542833}
   decreaseButton: {fileID: 492921141}
+  repeatDelay: 0.1
+  threshold: 0.5
+  increaseSizeShortcut: {fileID: 414826789347327246, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  decreaseSizeShortcut: {fileID: 5104179022826594831, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  joystickAction: {fileID: -60998027439631388, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   minSize: 1
   maxSize: 10
   sizeStep: 1
@@ -9896,6 +9901,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225964133}
   m_CullTransparentMesh: 1
+--- !u!1 &1245841042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8411614371249740571, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+  m_PrefabInstance: {fileID: 8302811136210916330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1255638673
 GameObject:
   m_ObjectHideFlags: 0
@@ -13225,6 +13235,11 @@ MonoBehaviour:
   - {fileID: 1347501236}
   - {fileID: 1606934628}
   - {fileID: 1684058888}
+  repeatDelay: 0.1
+  threshold: 0.5
+  increaseSizeShortcut: {fileID: -2365758443210483518, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  decreaseSizeShortcut: {fileID: -1845254235014586423, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  joystickAction: {fileID: -8666952849799569744, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!4 &1756208945
 Transform:
   m_ObjectHideFlags: 0
@@ -17556,11 +17571,31 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 735346386751834802, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_UIHitProperties.m_AdjustWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 735346386751834802, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_CustomizeLinePropertiesForState
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 735346386751834802, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_HoverHitProperties.m_AdjustWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 735346386751834802, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_UIHitProperties.m_AdjustGradient
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 735346386751834802, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_SelectHitProperties.m_AdjustWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 735346386751834802, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_NoValidHitProperties.m_AdjustWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 735346386751834802, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_UIPressHitProperties.m_AdjustWidth
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 735346386751834802, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
@@ -17579,9 +17614,17 @@ PrefabInstance:
       propertyPath: m_UIPressHitProperties.m_AdjustGradient
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 735346386751834802, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_UIPressHitProperties.m_SmoothlyCurveLine
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1474870672683495991, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime0
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474870672683495991, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_Parameters.colorGradient.ctime1
+      value: 3277
       objectReference: {fileID: 0}
     - target: {fileID: 1474870672683495991, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
@@ -17594,6 +17637,10 @@ PrefabInstance:
     - target: {fileID: 1474870672683495991, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474870672683495991, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_Parameters.colorGradient.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1474870672683495991, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_Parameters.colorGradient.m_ColorSpace
@@ -17914,11 +17961,27 @@ PrefabInstance:
       value: -23
       objectReference: {fileID: 0}
     - target: {fileID: 7720568465813591085, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_UIHitProperties.m_AdjustWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720568465813591085, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_CustomizeLinePropertiesForState
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7720568465813591085, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_HoverHitProperties.m_AdjustWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720568465813591085, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_UIHitProperties.m_AdjustGradient
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720568465813591085, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_SelectHitProperties.m_AdjustWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720568465813591085, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_NoValidHitProperties.m_AdjustWidth
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7720568465813591085, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
@@ -17992,6 +18055,22 @@ PrefabInstance:
     - target: {fileID: 8404871649812681847, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_RequestedTrackingOriginMode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459812518156823720, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_Parameters.colorGradient.ctime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459812518156823720, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_Parameters.colorGradient.ctime1
+      value: 3277
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459812518156823720, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_Parameters.colorGradient.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459812518156823720, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+      propertyPath: m_Parameters.colorGradient.m_ColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8833969059611364245, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_IsActive
@@ -19124,6 +19203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paint Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2601839806770816555, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: gameMenu
+      value: 
+      objectReference: {fileID: 1245841042}
     - target: {fileID: 2601839806770816555, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
       propertyPath: POVReference
       value: 
