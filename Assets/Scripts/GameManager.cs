@@ -53,7 +53,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text promptText;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private Button startButton;
+    [SerializeField] private GameObject[] itemsToReturn;
 
+    private List<Transform> returnItemsTransforms;
     private List<string> unusedPrompts;
     private Coroutine roundEndTimer;
     public static event Action OnRoundStart;
@@ -63,6 +65,12 @@ public class GameManager : MonoBehaviour
         this.startButton.onClick.AddListener(StartRound);
         this.unusedPrompts = new();
         this.promptPanel.SetActive(false);
+
+        this.returnItemsTransforms = new();
+        foreach (var obj in itemsToReturn)
+        {
+            this.returnItemsTransforms.Add(obj.transform);
+        }
     }
 
 
@@ -89,6 +97,15 @@ public class GameManager : MonoBehaviour
         this.startButton.interactable = true;
         this.roundEndTimer = null;
         this.promptPanel.SetActive(false);
+    }
+
+    public void ReturnItems()
+    {
+        for (int i = 0; i < this.itemsToReturn.Length; i++)
+        {
+            this.itemsToReturn[i].transform.position = this.returnItemsTransforms[i].position;
+            this.itemsToReturn[i].transform.rotation = this.returnItemsTransforms[i].rotation;
+        }
     }
 
     #endregion
