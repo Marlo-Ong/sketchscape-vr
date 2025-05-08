@@ -7140,7 +7140,7 @@ MonoBehaviour:
   m_ConstrainedAxisDisplacementMode: 1
   m_TwoHandedRotationMode: 1
   m_AllowOneHandedScaling: 1
-  m_AllowTwoHandedScaling: 0
+  m_AllowTwoHandedScaling: 1
   m_OneHandedScaleSpeed: 0.5
   m_ThresholdMoveRatioForScale: 0.05
   m_ClampScaling: 1
@@ -7164,7 +7164,7 @@ MonoBehaviour:
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
-  m_SelectMode: 0
+  m_SelectMode: 1
   m_FocusMode: 1
   m_CustomReticle: {fileID: 0}
   m_AllowGazeInteraction: 0
@@ -7221,7 +7221,7 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -7277,7 +7277,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778190700}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.05
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9621,33 +9621,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 183720, guid: cb34250ae9427604f9aeac015096d161, type: 3}
   m_PrefabInstance: {fileID: 2144279859}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &1031991376
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031991372}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1031991378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18451,9 +18424,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 121000, guid: cb34250ae9427604f9aeac015096d161, type: 3}
       insertIndex: -1
       addedObject: {fileID: 562815308}
-    - targetCorrespondingSourceObject: {fileID: 183720, guid: cb34250ae9427604f9aeac015096d161, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1031991376}
     - targetCorrespondingSourceObject: {fileID: 183720, guid: cb34250ae9427604f9aeac015096d161, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1031991378}
