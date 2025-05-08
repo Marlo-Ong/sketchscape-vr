@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections.Generic;
 using System.Collections;
 using System;
+using UnityEngine.UI;
 
 public static class Prompts
 {
@@ -51,12 +52,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject promptPanel;
     [SerializeField] private TMP_Text promptText;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private Button startButton;
 
     private List<string> unusedPrompts;
     private Coroutine roundEndTimer;
+    public static event Action OnRoundStart;
 
     private void Start()
     {
+        this.startButton.onClick.AddListener(StartRound);
         this.unusedPrompts = new();
         this.promptPanel.SetActive(false);
     }
@@ -66,6 +70,9 @@ public class GameManager : MonoBehaviour
 
     public void StartRound()
     {
+        OnRoundStart?.Invoke();
+
+        this.startButton.interactable = false;
         this.SetPromptRandom();
         this.promptPanel.SetActive(true);
 
@@ -79,7 +86,7 @@ public class GameManager : MonoBehaviour
 
     public void EndRound()
     {
-        this.roundEndTimer = null;
+        this.startButton.interactable = true;
         this.roundEndTimer = null;
         this.promptPanel.SetActive(false);
     }

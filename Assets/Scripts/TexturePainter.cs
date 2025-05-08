@@ -47,6 +47,7 @@ public class TexturePainter : MonoBehaviour
         rightControllerDrawAction.action.Enable();
         ColorManager.OnColorChanged += this.SetBrushColor;
         BrushManager.OnSizeChanged += this.SetBrushSize;
+        GameManager.OnRoundStart += ClearCanvas;
     }
 
     void OnDisable()
@@ -55,6 +56,7 @@ public class TexturePainter : MonoBehaviour
         rightControllerDrawAction.action.Disable();
         ColorManager.OnColorChanged -= this.SetBrushColor;
         BrushManager.OnSizeChanged -= this.SetBrushSize;
+        GameManager.OnRoundStart -= ClearCanvas;
     }
 
     void Start()
@@ -219,6 +221,10 @@ public class TexturePainter : MonoBehaviour
                 runtimeTexture.SetPixel(x, y, canvasBaseColor);
             }
         }
+    
+        runtimeTexture.Apply();
+        if (texelsToDraw != null) texelsToDraw.Clear();
+        previousTexel = null;
     }
 
     public void SaveCanvasToFile()

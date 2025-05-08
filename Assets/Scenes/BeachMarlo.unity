@@ -6835,7 +6835,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 14.1, y: 0}
-  m_SizeDelta: {x: 0, y: 18}
+  m_SizeDelta: {x: 48.19, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &749884529
 MonoBehaviour:
@@ -7926,7 +7926,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 15.2, y: -35.5}
-  m_SizeDelta: {x: 0, y: 18}
+  m_SizeDelta: {x: 52.1, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &825771253
 MonoBehaviour:
@@ -11467,7 +11467,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 14.1, y: 0}
-  m_SizeDelta: {x: 0, y: 18}
+  m_SizeDelta: {x: 40.75, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1246000556
 MonoBehaviour:
@@ -12446,7 +12446,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 15.2, y: -35.5}
-  m_SizeDelta: {x: 0, y: 18}
+  m_SizeDelta: {x: 44.66, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368246395
 MonoBehaviour:
@@ -16478,6 +16478,7 @@ MonoBehaviour:
   promptPanel: {fileID: 7653958130798436394}
   promptText: {fileID: 1759284206256916087}
   timerText: {fileID: 1421910978190692531}
+  startButton: {fileID: 8302811136210916331}
 --- !u!4 &1960609046
 Transform:
   m_ObjectHideFlags: 0
@@ -21588,6 +21589,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2779669268269126898}
     - target: {fileID: 8159418582583482421, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8159418582583482421, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1960609045}
@@ -21596,6 +21601,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+--- !u!114 &8302811136210916331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8159418582583482421, guid: 8bb203390c66645db9ae77532c679dec, type: 3}
+  m_PrefabInstance: {fileID: 8302811136210916330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8312469332701707593
 PrefabInstance:
   m_ObjectHideFlags: 0
