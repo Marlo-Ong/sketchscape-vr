@@ -1,5 +1,6 @@
 # Sketchscape VR
-Sketchscape is a distraction-free, fully-customizable immersive sim that plaecs you in a virtual world to draw anything you can imagine.
+Sketchscape is a distraction-free, fully-customizable immersive sim that places you in a virtual world to draw anything you can imagine.
+
 Sketchscape:
 - ignites inspiration with a wide range of drawing prompts
 - provides users with customizable environments
@@ -21,7 +22,8 @@ Sketchscape:
 
 ## Controls
 When in the scene, you can look at the controllers to see what each control does. You can also open the main menu to view the controls.
-Note: This app is meant to be played on a compatible VR headset, and was tested on the Oculus Meta Quest 2.
+
+*Note: This app is meant to be played on a compatible VR headset, and was tested on the Oculus Meta Quest 2.*
 
 - Use the **VR headset** to look around in the virtual environment.
 - Tap the **left thumbstick** up/down on the left controller to increase/decrease your brush **size**.
@@ -29,9 +31,10 @@ Note: This app is meant to be played on a compatible VR headset, and was tested 
 - Tap the **primary trigger** on either controller to click and navigate any in-game UI.
 - Point and hold the **primary trigger** on either controller at the canvas to draw.
 - Point and hold the **secondary trigger** on either controller to grab and move any interactible object, including the canvas.
+- Tap the **left menu button** to open up the in-game UI menu.
 
 ## Authors
-This project was made by Team 10 as a part of the CS/PSY 484: Virtual Reality class at the University of Nevada, Reno.
+This project was made by Team 10 as a part of the CS/PSY 484: Virtual Reality class at the University of Nevada, Reno:
 - Kairie Lamayo (Dept. of Neuroscience)
 - Marlo Ongkingco (Dept. of Computer Science & Engineering)
 - Ploy Wandeevong (Dept. of Computer Science & Engineering)
