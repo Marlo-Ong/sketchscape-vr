@@ -4,6 +4,7 @@ using System.IO;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Renderer))]
 public class TexturePainter : MonoBehaviour
@@ -30,6 +31,8 @@ public class TexturePainter : MonoBehaviour
     [SerializeField] private InputActionProperty leftControllerDrawAction;
     [SerializeField] private Transform rightControllerTransform;
     [SerializeField] private InputActionProperty rightControllerDrawAction;
+
+    [SerializeField] private Button clearCanvasButton;
 
     private Texture2D runtimeTexture;
     private Vector2Int? previousTexel;
@@ -67,6 +70,8 @@ public class TexturePainter : MonoBehaviour
         // Create a copy of the texture.
         runtimeTexture = new Texture2D(this.canvasResolution, this.canvasResolution, TextureFormat.RGBA32, false);
         renderer.material.mainTexture = runtimeTexture;
+
+        this.clearCanvasButton.onClick.AddListener(ClearCanvas);
 
         ClearCanvas();
     }
