@@ -1,7 +1,9 @@
 # Sketchscape VR
-Sketchscape is a distraction-free, fully-customizable immersive sim that places you in a virtual world to draw anything you can imagine.
+Sketchscape is a distraction-free, fully-customizable immersive sim that places you in a virtual world to draw anything you can imagine!
 
-Sketchscape:
+<img width="750" alt="sketchscape-banner" src="https://github.com/user-attachments/assets/a308e1fe-5509-4b8b-b0da-34cb35e5c25b" />
+
+### Sketchscape:
 - ignites inspiration with a wide range of drawing prompts
 - provides users with customizable environments
 - challenges users with an optional timed game mode
@@ -11,6 +13,8 @@ Sketchscape:
 - The user is placed in a stationary virtual environment.
 - There are no methods of locomotion, since this experience is meant to be played standing in one spot.
 - The user will use the controllers to simulate a paint brush and "paint" onto a canvas.
+
+<img width="750" alt="sketchscape-game-screenshot" src="https://github.com/user-attachments/assets/09ad72fc-cf12-493c-bdde-5076d5f8e4f1" />
 
 ## Features
 - Immersive audio and haptic feedback while drawing
@@ -32,9 +36,14 @@ When in the scene, you can look at the controllers to see what each control does
 - Point and hold the **primary trigger** on either controller at the canvas to draw.
 - Point and hold the **secondary trigger** on either controller to grab and move any interactible object, including the canvas.
 - Tap the **left menu button** to open up the in-game UI menu.
+  
+<img width="750" alt="sketchscape-controls" src="https://github.com/user-attachments/assets/42ed0312-566d-4e27-a240-73f62e369ecd" />
 
 ## Authors
-This project was made by Team 10 as a part of the CS/PSY 484: Virtual Reality class at the University of Nevada, Reno:
+This project was made by Team 10 as a part of the multidisciplinary CS/PSY 484: Virtual Reality class at the University of Nevada, Reno:
 - Kairie Lamayo (Dept. of Neuroscience)
 - Marlo Ongkingco (Dept. of Computer Science & Engineering)
 - Ploy Wandeevong (Dept. of Computer Science & Engineering)
+
+<img width="500" alt="sketchscape-team" src="https://github.com/user-attachments/assets/82173f65-b0e3-4e4e-a9b3-05635099d6e2" />
+
