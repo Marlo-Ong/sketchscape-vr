@@ -9,6 +9,12 @@ Sketchscape is a distraction-free, fully-customizable immersive sim that places 
 - challenges users with an optional timed game mode
 - relaxes users with a freeform mode for recreational fun
 
+## How to Play
+1. Download the latest *sketchscape.apk* release from our [Releases](https://github.com/Marlo-Ong/sketchscape-vr/releases.) tab on Github.
+2. Load the .apk file onto your headset of choice.
+> You can use a side-loading app such as [Sidequest](https://sidequestvr.com/download) to properly connect your headset to your computer and transfer files.
+3. Search for *Sketchscape* within the Apps screen of your headset and launch the executable.
+
 ## Background
 - The user is placed in a stationary virtual environment.
 - There are no methods of locomotion, since this experience is meant to be played standing in one spot.
@@ -27,7 +33,7 @@ Sketchscape is a distraction-free, fully-customizable immersive sim that places 
 ## Controls
 When in the scene, you can look at the controllers to see what each control does. You can also open the main menu to view the controls.
 
-*Note: This app is meant to be played on a compatible VR headset, and was tested on the Oculus Meta Quest 2.*
+> *Note: This app is meant to be played on a compatible VR headset, and was tested on the Oculus Meta Quest 2.*
 
 - Use the **VR headset** to look around in the virtual environment.
 - Tap the **left thumbstick** up/down on the left controller to increase/decrease your brush **size**.
